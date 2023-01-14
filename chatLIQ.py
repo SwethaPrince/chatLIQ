@@ -3,6 +3,9 @@ from nltk.chat.util import Chat, reflections
 import tkinter as tk
 import time
 import datetime
+from PIL import Image, ImageTk
+
+
 
 # Define the pairs for the chatbot
 pairs = [
@@ -54,8 +57,11 @@ chatbot = Chat(pairs, reflections)
 # Create the main window
 root = tk.Tk()
 root.title("Chatbot-LoanIQ")
-root.geometry("400x450")
-
+pad=3
+root.geometry("600x450")
+root.configure(background='white')
+# Create a PhotoImage object
+photo_image = ImageTk.PhotoImage(file="Capture.PNG")
 
 
 # Create a frame for the chat history
@@ -70,12 +76,12 @@ chat_history.pack()
 user_input_frame = tk.Frame(root)
 user_input_frame.pack()
 
-# Create a text box for the user input
-user_input = tk.Entry(user_input_frame)
+
+user_input = tk.Entry(user_input_frame, width=500,font=("Roboto", 10))
 user_input.pack()
 
 # Create a button to send the user input
-send_button = tk.Button(user_input_frame, text="Send", command=lambda: send_message())
+send_button = tk.Button(user_input_frame, text="Submit", command=lambda: send_message())
 send_button.pack()
 
 
@@ -83,11 +89,11 @@ def default_message():
     hour = datetime.datetime.now().hour
 
     if 0 <= hour < 12:
-        text = "Good Morning. I am your assistant chatLIQ. How can I Serve you?"
+        text = "Good Morning.I am your assistant chatLIQ.How can I Serve you?"
     elif 12 <= hour < 18:
-        text = "Good Afternoon. I am your assistant chatLIQ. How can I Serve you?"
+        text = "Good Afternoon.I am your assistant chatLIQ.How can I Serve you?"
     else:
-        text = "Good Evening. I am your assistant chatLIQ. How can I Serve you?"
+        text = "Good Evening.I am your assistant chatLIQ.How can I Serve you?"
     chat_history.insert(tk.END, "chatLIQ: " + text + "\n")
 
 
@@ -105,5 +111,8 @@ def send_message():
     chat_history.insert(tk.END, "chatLIQ: " + response + "\n")
     # Clear the user's input
     user_input.delete(0, tk.END)
+    
+    
+  
 
 root.mainloop()
