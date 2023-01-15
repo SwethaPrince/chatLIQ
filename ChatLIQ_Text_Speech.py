@@ -56,16 +56,6 @@ pairs = [
     ],
 ]
 
-def default_message():
-    hour = datetime.datetime.now().hour
-
-    if 0 <= hour < 12:
-        text = "Good Morning sir. I am chatIQ. How can I Serve you?"
-    elif 12 <= hour < 18:
-        text = "Good Afternoon sir. I am chatIQ. How can I Serve you?"
-    else:
-        text = "Good Evening sir. I am chatIQ. How can I Serve you?"
-        chat_history.insert(tk.END, "Chatbot: " + text + "\n")
 
 
 
@@ -82,6 +72,11 @@ root.configure(background='white')
 
 global Canvas
 global img1
+
+
+# Initialize the text-to-speech engine
+engine = pyttsx3.init()
+
 # Create a PhotoImage object
 img1= ImageTk.PhotoImage(file='Capture.png')
 canvas = tk.Canvas(root, width = 500, height = 796)
@@ -107,7 +102,10 @@ user_input.pack()
 # Create a button to send the user input
 send_button = tk.Button(user_input_frame, text="Submit", command=lambda: send_message())
 send_button.pack()
-
+    
+# Create a button to activate speech input
+listen_button = tk.Button(user_input_frame, text="Say Something", command=lambda: listen())
+listen_button.pack()
 
 def default_message():
     hour = datetime.datetime.now().hour
@@ -136,20 +134,28 @@ def send_message():
     # Clear the user's input
     user_input.delete(0, tk.END)
     
-# Define a function to get the user's speech input
-def get_audio():
+def listen():
+    # Initialize recognizer class (for recognizing the speech)
+    r = sr.Recognizer()
+
+    # Reading Microphone as source
+    # listening the speech and store in audio_text variable
     with sr.Microphone() as source:
-        print("Say something!")
-        audio = r.listen(source)
+        print("Talk")
+        audio_text = r.listen(source)
+
+    # recoginize_() method will throw a request error if the API is unreachable
     try:
-        user_input = r.recognize_google(audio)
-        return user_input
-    except sr.UnknownValueError:
-        print("Sorry, I didn't understand that.")
-        return ""
-    except sr.RequestError as e:
-        print("Error; {0}".format(e))
-        return ""
-  
+        # using google speech recognition
+        print("You Said: "+r.recognize_google(audio_text))
+        response = get_google_response(text)
+        speak(response)
+    except:
+        pass
+    
+# Define a function to make the chatbot speak
+def speak(text):
+    engine.say(text)
+    engine.runAndWait()
 
 root.mainloop()
