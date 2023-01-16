@@ -147,7 +147,9 @@ def listen():
     try:
         text = r.recognize_google(audio_text)
         print("You said: {}".format(text))
-        speak(text)
+        response = chatbot.respond(text)
+        print("You said response: {}".format(response))
+        speak(response)
         return text
     except sr.UnknownValueError:
         print("Sorry, I could not understand you.")
