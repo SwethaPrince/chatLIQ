@@ -141,20 +141,23 @@ def listen():
     # Reading Microphone as source
     # listening the speech and store in audio_text variable
     with sr.Microphone() as source:
-        print("Talk")
+        print("Listening...")
         audio_text = r.listen(source)
 
-    # recoginize_() method will throw a request error if the API is unreachable
     try:
-        # using google speech recognition
-        print("You Said: "+r.recognize_google(audio_text))
-        response = get_google_response(text)
-        speak(response)
-    except:
-        pass
+        text = r.recognize_google(audio_text)
+        print("You said: {}".format(text))
+        speak(text)
+        return text
+    except sr.UnknownValueError:
+        print("Sorry, I could not understand you.")
+        return None
+    except sr.RequestError as e:
+        print("Error occured: {}".format(e))
+        return None
     
-# Define a function to make the chatbot speak
 def speak(text):
+    engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
 
