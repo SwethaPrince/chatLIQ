@@ -18,10 +18,20 @@ import requests
 from bs4 import BeautifulSoup
 from gtts import gTTS
 import os
+import json
 import random
 from playsound import playsound
 import warnings
 warnings.filterwarnings("ignore")
+
+
+
+def aboutCall(): 
+    response = requests.get("http://blrcswliqdt0010:11082/loaniqcoreservice/restapi/About")
+    # Get the JSON data from the response
+    data = response.json()
+    print(json.dumps(data, indent=4))
+    return json.dumps(data, indent=4)
 
 
 # Define the pairs for the chatbot
@@ -33,6 +43,10 @@ pairs = [
     [
         r"hi|hey|hello",
         ["Hello", "Hey there"]
+    ],
+    [
+        r"about",
+      [ aboutCall()  ] 
     ],
     [
         r"what is your name?",
@@ -72,6 +86,7 @@ root.configure(background='white')
 
 global Canvas
 global img1
+
 
 
 # Initialize the text-to-speech engine
@@ -162,5 +177,9 @@ def speak(text):
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
+
+
+
+
 
 root.mainloop()
