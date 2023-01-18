@@ -49,7 +49,7 @@ def paymentCall():
         }
         
         # Send the POST request
-        response = requests.post("http://blrcswliqmt0096:8081/saveaction/submit/SME/SME", data=protobuf_data, headers=headers)
+        response = requests.post("http://blrcswliqdt0010:8081/saveaction/submit/SME/SME", data=protobuf_data, headers=headers)
         # Print the response
         print(response.status_code)
 
