@@ -54,13 +54,13 @@ def paymentCall():
         print(response.status_code)
 
 
-def searchCall():
+def searchBorrowerCall():
         # Read the protobuf file
         with open("common.bin", "rb") as f:
             protobuf_data = f.read()
         
         # Define the bearer token
-        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsWUVOWHhJRWpTTm9LUjF5bEdxNHpSQUl1a1IxcThMdGZYNnBlZXctRnUwIn0.eyJleHAiOjE2NzQwMzY0OTYsImlhdCI6MTY3NDAzNTc3NiwianRpIjoiMTFiYTcyZmUtZjBlNi00NDI2LWFhMTQtMDNlZWYxOTA0NGM0IiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODAuMTkwOjgwOTAvYXV0aC9yZWFsbXMvTE9BTklRX1dFQiIsInN1YiI6ImQwZTY0Yjc1LTgzZDktNDMyOS1hYzM0LTQyNDkyY2RlODM3ZiIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxPQU5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiMGJmOTQ3ODktMzNjOC00YWE5LWE2NTEtMzU3NmQ1M2EzMDk5IiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIwYmY5NDc4OS0zM2M4LTRhYTktYTY1MS0zNTc2ZDUzYTMwOTkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJ0cnVzZXIgMjYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0cnVzZXIyNiIsImdpdmVuX25hbWUiOiJ0cnVzZXIiLCJmYW1pbHlfbmFtZSI6IjI2In0.L4E-k2qlO1_SAYR_noHRnxDcDsSe_s08nbXAdr3O0dfCZHWxzu7ralWv5bPNsgtQGBLFMMKJtA9rI7NJhL5xTZi_SbqabxhlYSnUUV2srUhr_a-ytKDoWnyI8PcKx_5j4blk0qjdbGvyvTV1aKF3sQtJnI5QKZOQIoEImTysTgePXYQHhUrx-43kH5fWAZGtjduBTf5zt2hSfHXU6IJHjsAcm_8KvsNShRp9DmMST7E0w_vzTiyYKjA1TuTU-SzP4s6HmcoXFtr5pmo4mq0NUpvv8V8v6O1KiLbay6w8_umry9NW_jmu6lxlfp3K3vnyV3PPITfNatDgurBKoUQzOA"
+        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsWUVOWHhJRWpTTm9LUjF5bEdxNHpSQUl1a1IxcThMdGZYNnBlZXctRnUwIn0.eyJleHAiOjE2NzQwNDI4NzEsImlhdCI6MTY3NDAzOTI3MSwianRpIjoiNzI5YzhiMDAtM2E2NS00YzQzLWJkODgtMzEyZmY2ZGJmZDVjIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODAuMTkwOjgwOTAvYXV0aC9yZWFsbXMvTE9BTklRX1dFQiIsInN1YiI6ImQwZTY0Yjc1LTgzZDktNDMyOS1hYzM0LTQyNDkyY2RlODM3ZiIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxPQU5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiODczNWNjNWYtZjk1Mi00MWI1LTkwMjItMzViMGFhMGQ2YThhIiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiI4NzM1Y2M1Zi1mOTUyLTQxYjUtOTAyMi0zNWIwYWEwZDZhOGEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJ0cnVzZXIgMjYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0cnVzZXIyNiIsImdpdmVuX25hbWUiOiJ0cnVzZXIiLCJmYW1pbHlfbmFtZSI6IjI2In0.lKWD6qV5KD09IXf8tljII4Xx_5L0K7X3M7v-DYFbNv0tTGZo6TDAYK58A3dCt0KublDYW4IOp4i4cb3quO8TmA8mrGKCKMIBQcNqgHIDpI92fbSo7HMNj72co4JMhb7VhYq1-MR4A-1Q9Hr3u1nMssgxAsMoT7iBSCBTAyCn_gF1a6vbrbnFMMEuehw5QRUIDrztFaHceU_xTR2Hr9urpBnxMdGvtCn-bhNm7pm4-sPFVoomxUvMBAkEFkxzdeXjtxIR65sOi_slPxWKrVGidmSDJsWO1w9wfBsqKH1_5gW_NOC_bO1ZCSPRbjIj2bfobhV_zGFAHJzagxJeFA5UXw"
         # Set the headers
         headers = {
             'Content-Type': 'application/x-protobuf',
@@ -91,6 +91,7 @@ def searchCall():
                 response_json = requests.post("http://blrcswliqdt0010:9091/dev/protobuf-utility/protobuftojson", data=protobuf_data, headers=headers)  
                 data_json = response_json.json()
                 print(json.dumps(data_json, indent=4))
+                return (json.dumps(data_json, indent=4))
         else:
             # Handle error
             print("Request failed with status code:", response.status_code)
@@ -110,8 +111,8 @@ pairs = [
         ["Hello", "Hey there"]
     ],
     [
-        r"about",
-      [ searchCall()  ] 
+        r"search Borrower (.*)",
+      [ searchBorrowerCall() ] 
     ],
     [
         r"what is your name?",
