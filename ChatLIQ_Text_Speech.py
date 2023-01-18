@@ -60,7 +60,7 @@ def searchBorrowerCall():
             protobuf_data = f.read()
         
         # Define the bearer token
-        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsWUVOWHhJRWpTTm9LUjF5bEdxNHpSQUl1a1IxcThMdGZYNnBlZXctRnUwIn0.eyJleHAiOjE2NzQwNDI4NzEsImlhdCI6MTY3NDAzOTI3MSwianRpIjoiNzI5YzhiMDAtM2E2NS00YzQzLWJkODgtMzEyZmY2ZGJmZDVjIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODAuMTkwOjgwOTAvYXV0aC9yZWFsbXMvTE9BTklRX1dFQiIsInN1YiI6ImQwZTY0Yjc1LTgzZDktNDMyOS1hYzM0LTQyNDkyY2RlODM3ZiIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxPQU5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiODczNWNjNWYtZjk1Mi00MWI1LTkwMjItMzViMGFhMGQ2YThhIiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiI4NzM1Y2M1Zi1mOTUyLTQxYjUtOTAyMi0zNWIwYWEwZDZhOGEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJ0cnVzZXIgMjYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0cnVzZXIyNiIsImdpdmVuX25hbWUiOiJ0cnVzZXIiLCJmYW1pbHlfbmFtZSI6IjI2In0.lKWD6qV5KD09IXf8tljII4Xx_5L0K7X3M7v-DYFbNv0tTGZo6TDAYK58A3dCt0KublDYW4IOp4i4cb3quO8TmA8mrGKCKMIBQcNqgHIDpI92fbSo7HMNj72co4JMhb7VhYq1-MR4A-1Q9Hr3u1nMssgxAsMoT7iBSCBTAyCn_gF1a6vbrbnFMMEuehw5QRUIDrztFaHceU_xTR2Hr9urpBnxMdGvtCn-bhNm7pm4-sPFVoomxUvMBAkEFkxzdeXjtxIR65sOi_slPxWKrVGidmSDJsWO1w9wfBsqKH1_5gW_NOC_bO1ZCSPRbjIj2bfobhV_zGFAHJzagxJeFA5UXw"
+        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsWUVOWHhJRWpTTm9LUjF5bEdxNHpSQUl1a1IxcThMdGZYNnBlZXctRnUwIn0.eyJleHAiOjE2NzQwNTEyMzMsImlhdCI6MTY3NDA0NzYzMywianRpIjoiYzA0OWRiYzQtZjE2NC00OTRmLWE2MjQtNjY5ODQ5MWQ3OTBkIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODAuMTkwOjgwOTAvYXV0aC9yZWFsbXMvTE9BTklRX1dFQiIsInN1YiI6ImQwZTY0Yjc1LTgzZDktNDMyOS1hYzM0LTQyNDkyY2RlODM3ZiIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxPQU5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiMDQwMjViZjUtOGUyZi00MDcxLWI4YWMtYWViZmNhOGU3ODJjIiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIwNDAyNWJmNS04ZTJmLTQwNzEtYjhhYy1hZWJmY2E4ZTc4MmMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJ0cnVzZXIgMjYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0cnVzZXIyNiIsImdpdmVuX25hbWUiOiJ0cnVzZXIiLCJmYW1pbHlfbmFtZSI6IjI2In0.K164__ntsKilFRH0CxaLqCfXjPPPZlN6z8HdF2I3MZWBnMnW9t1qmElKYItDFIio-bC7pn4UpWYg85g9IDAF-wRi6Y15edfn6Z2jBiBAYVFkwS0y4-_7NqskO_eyNhJq1jJFPOTJP0qy6I-oiy7aKs2N26sga18BtW9owHBM9x0_uaxXAGiUM0XephSWwU4mAZaYc2hjRsF4O8Q88aJoV89hegOdpot-efjIz5w1UNKNhE4EHozPxzjwRSd7ccrJ2lWNpv5tVgUh5g_DucXrY5PABY005VP8buHpCpABuRnk2U9VpEGhsb4CpYeK2X98SMY2IytBxdk9frrKmRQIxQ" 
         # Set the headers
         headers = {
             'Content-Type': 'application/x-protobuf',
@@ -90,8 +90,16 @@ def searchBorrowerCall():
                     }
                 response_json = requests.post("http://blrcswliqdt0010:9091/dev/protobuf-utility/protobuftojson", data=protobuf_data, headers=headers)  
                 data_json = response_json.json()
-                print(json.dumps(data_json, indent=4))
-                return (json.dumps(data_json, indent=4))
+                json_str = json.dumps(data_json)
+                #print(json.dumps(data_json, indent=4))
+                json_data = json.loads(json_str)
+                #print(json_data["response"]["result"]["liqBusinessObjects"]["liqBusinessObject"][0]["group"][0]["item"][0:15])
+                #print("transactionType:", json_data["transactionType"]["0"])
+
+                desired_json = json_data["response"]["result"]["liqBusinessObjects"]["liqBusinessObject"][0]["group"][0]["item"][0:15]
+                json_str1 = json.dumps(desired_json)
+                print(json_str1)
+                return (json_str1)
         else:
             # Handle error
             print("Request failed with status code:", response.status_code)
@@ -111,8 +119,8 @@ pairs = [
         ["Hello", "Hey there"]
     ],
     [
-        r"search Borrower (.*)",
-      [ searchBorrowerCall() ] 
+        r"search Borrower",
+      [ searchBorrowerCall()] 
     ],
     [
         r"what is your name?",
