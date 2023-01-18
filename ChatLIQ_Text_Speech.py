@@ -156,7 +156,7 @@ chatbot = Chat(pairs, reflections)
 root = tk.Tk()
 root.title("Chatbot-LoanIQ")
 pad=3
-root.geometry("1400x460")
+root.geometry("1400x490")
 bg_image = PhotoImage(file="Capture.png")
 # Create a Label widget to hold the background image
 bg_label = Label(root, image=bg_image)
@@ -195,8 +195,9 @@ user_input = tk.Entry(user_input_frame, width=400,font=("Roboto", 10))
 user_input.pack()
 
 
+gifsubmit = PhotoImage(file="submit.png")
 # Create a button to send the user input
-send_button = tk.Button(user_input_frame, text="Submit", command=lambda: send_message())
+send_button = tk.Button(user_input_frame, image=gifsubmit, command=lambda: send_message())
 send_button.pack()
    
 # Create a button to activate speech input
