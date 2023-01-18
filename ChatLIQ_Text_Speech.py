@@ -21,7 +21,7 @@ import os
 import json
 import random
 from playsound import playsound
-from tkinter import PhotoImage
+from tkinter import PhotoImage , Label
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -157,6 +157,11 @@ root = tk.Tk()
 root.title("Chatbot-LoanIQ")
 pad=3
 root.geometry("1400x460")
+bg_image = PhotoImage(file="Capture.png")
+# Create a Label widget to hold the background image
+bg_label = Label(root, image=bg_image)
+# Place the Label widget on the right side of the main window
+bg_label.place(relx=1.0, rely=0, anchor='ne')
 root.configure(background='white')
 
 global Canvas
@@ -186,28 +191,34 @@ user_input_frame = tk.Frame(root)
 user_input_frame.pack()
 
 
-user_input = tk.Entry(user_input_frame, width=500,font=("Roboto", 10))
+user_input = tk.Entry(user_input_frame, width=400,font=("Roboto", 10))
 user_input.pack()
 
-gif = PhotoImage(file="voice_search.png")
 
 # Create a button to send the user input
 send_button = tk.Button(user_input_frame, text="Submit", command=lambda: send_message())
 send_button.pack()
    
 # Create a button to activate speech input
-listen_button = tk.Button(user_input_frame, text="Say Something", command=lambda: listen())
+#listen_button = tk.Button(user_input_frame, text="Say Something", command=lambda: listen())
+#listen_button.pack()
+
+gif = PhotoImage(file="rsz_voice_search.png")
+listen_button = tk.Button(user_input_frame, image=gif, command=lambda:  listen())
+listen_button.image = gif
 listen_button.pack()
+
+
 
 def default_message():
     hour = datetime.datetime.now().hour
 
     if 0 <= hour < 12:
-        text = "Good Morning.I am your assistant chatLIQ.How can I Serve you?"
+        text = "Good Morning.I am your assistant chatLIQ. How can I help you ?"
     elif 12 <= hour < 18:
-        text = "Good Afternoon.I am your assistant chatLIQ.How can I Serve you?"
+        text = "Good Afternoon.I am your assistant chatLIQ. How can I help you ?"
     else:
-        text = "Good Evening.I am your assistant chatLIQ.How can I Serve you?"
+        text = "Good Evening.I am your assistant chatLIQ. How can I help you ?"
     chat_history.insert(tk.END, "chatLIQ: " + text + "\n")
 
 
