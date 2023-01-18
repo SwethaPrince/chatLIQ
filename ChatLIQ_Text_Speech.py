@@ -34,6 +34,34 @@ def aboutCall():
     return json.dumps(data, indent=4)
 
 
+def paymentCall():
+        # Read the protobuf file
+        with open("input.bin", "rb") as f:
+            protobuf_data = f.read()
+        
+        # Define the bearer token
+        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5akVFdzNwcGp4U1Q4Tlc0M0Zqcll5TG84VlFVeWdkM0MycF9malRKVW9nIn0.eyJleHAiOjE2NzQwMjk0NDQsImlhdCI6MTY3NDAyNjQ0NCwianRpIjoiMDcwNDg1ZDEtY2IwMy00MWEwLTg3YWEtMTE1YWFkM2I1YmRjIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODYuMjM2OjgwODAvYXV0aC9yZWFsbXMvTG9hbklRX1dFQiIsInN1YiI6ImYxZTUzZmY0LWQ3YmQtNGVhNS05NWMyLTYxYjRhNWVhN2JlMCIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxvYW5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiNDYxMWIwYWQtMjk5My00ZTYwLThjMGUtNjBlYjZhMjRiZDMzIiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiI0NjExYjBhZC0yOTkzLTRlNjAtOGMwZS02MGViNmEyNGJkMzMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRydXNlcjI2In0.tFN8dgcKSxqQKKtIk5ATtMeOfvPN-ARVjTYShvFRaRMHocixBy_FroW5Jbv0HHHjzbRVErrK5limjELt0aePWyRMdO6mCymByoHzDEWq1IHn0hB20uYwV0W4x9dBxZU0qOlBLp3Bh5DOAf0v0JgIEpN_wjeB7M1gPL-ZjSrBnWviV0brNwNzW3v0Lw7qGXUVfyoO6oaXRP-mS7gKMyddLonKHKs3ZWqhJLDRvbJIpXg3n8mwTcehdz8d9V4mF3Q-LHu1pgGnGHVx1brG08Ze1rY8NlTPkLyusPSyzWMNGJrfzxMgaRsyubMx7LjFsCAhVLtUCsUVu5j88oK3P3jncg"
+        
+        # Set the headers
+        headers = {
+            'Content-Type': 'application/x-protobuf',
+            'Authorization': 'Bearer ' + bearer_token
+        }
+        
+        # Send the POST request
+        response = requests.post("http://blrcswliqmt0096:8081/saveaction/submit/SME/SME", data=protobuf_data, headers=headers)
+        # Print the response
+        print(response.status_code)
+
+
+
+
+
+
+
+
+
+
 # Define the pairs for the chatbot
 pairs = [
     [
@@ -46,7 +74,7 @@ pairs = [
     ],
     [
         r"about",
-      [ aboutCall()  ] 
+      [ paymentCall()  ] 
     ],
     [
         r"what is your name?",
