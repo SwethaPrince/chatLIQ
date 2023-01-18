@@ -40,7 +40,7 @@ def paymentCall():
             protobuf_data = f.read()
         
         # Define the bearer token
-        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5akVFdzNwcGp4U1Q4Tlc0M0Zqcll5TG84VlFVeWdkM0MycF9malRKVW9nIn0.eyJleHAiOjE2NzQwMjk0NDQsImlhdCI6MTY3NDAyNjQ0NCwianRpIjoiMDcwNDg1ZDEtY2IwMy00MWEwLTg3YWEtMTE1YWFkM2I1YmRjIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODYuMjM2OjgwODAvYXV0aC9yZWFsbXMvTG9hbklRX1dFQiIsInN1YiI6ImYxZTUzZmY0LWQ3YmQtNGVhNS05NWMyLTYxYjRhNWVhN2JlMCIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxvYW5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiNDYxMWIwYWQtMjk5My00ZTYwLThjMGUtNjBlYjZhMjRiZDMzIiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiI0NjExYjBhZC0yOTkzLTRlNjAtOGMwZS02MGViNmEyNGJkMzMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRydXNlcjI2In0.tFN8dgcKSxqQKKtIk5ATtMeOfvPN-ARVjTYShvFRaRMHocixBy_FroW5Jbv0HHHjzbRVErrK5limjELt0aePWyRMdO6mCymByoHzDEWq1IHn0hB20uYwV0W4x9dBxZU0qOlBLp3Bh5DOAf0v0JgIEpN_wjeB7M1gPL-ZjSrBnWviV0brNwNzW3v0Lw7qGXUVfyoO6oaXRP-mS7gKMyddLonKHKs3ZWqhJLDRvbJIpXg3n8mwTcehdz8d9V4mF3Q-LHu1pgGnGHVx1brG08Ze1rY8NlTPkLyusPSyzWMNGJrfzxMgaRsyubMx7LjFsCAhVLtUCsUVu5j88oK3P3jncg"
+        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsWUVOWHhJRWpTTm9LUjF5bEdxNHpSQUl1a1IxcThMdGZYNnBlZXctRnUwIn0.eyJleHAiOjE2NzQwMzY0MTgsImlhdCI6MTY3NDAzMzQxOCwianRpIjoiODQzODFkOTQtMGY5ZS00MzIxLWJlYzgtMmQxMTM3MmQ3ZWNkIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODYuMjM2OjgwODAvYXV0aC9yZWFsbXMvTG9hbklRX1dFQiIsInN1YiI6ImYxZTUzZmY0LWQ3YmQtNGVhNS05NWMyLTYxYjRhNWVhN2JlMCIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxvYW5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiYjYwYjgxMGQtYjY4Ni00ZDM1LThiNjItZjdjMWRiMDg4NmM4IiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJiNjBiODEwZC1iNjg2LTRkMzUtOGI2Mi1mN2MxZGIwODg2YzgiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRydXNlcjI2In0.SRIyC6q_HQU4KAsWVuD_4VY5zVM2nPzF-eGx4ZtMBS8UVPBJFvPfyGMszjTntkwza0ikzYWZIG88RIcr6gzZZQPIZCIVKDN9mq6k7HfOC03KSKJGUJqvT674pBPiaHGiTFQb7UhaucfF7afUCvJ0B80UcpymiBksSq7c_fPtTkRddSh8PyqDF2JHfOgIKs17br7uFAhYpCntIjMoZUpIygxVwBLGlRN4yxh6Z70iX0WG6_itjuCpE1yaODhEqUGoZxU3F3K9IoXrTLq3Sy3mOuFBG9edPQF_847UNp6vHWbFlyhQZokib1pN9-DIBokTb9wUyE8pxvoxpsxqg5vBxA.eyJleHAiOjE2NzQwMjk0NDQsImlhdCI6MTY3NDAyNjQ0NCwianRpIjoiMDcwNDg1ZDEtY2IwMy00MWEwLTg3YWEtMTE1YWFkM2I1YmRjIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODYuMjM2OjgwODAvYXV0aC9yZWFsbXMvTG9hbklRX1dFQiIsInN1YiI6ImYxZTUzZmY0LWQ3YmQtNGVhNS05NWMyLTYxYjRhNWVhN2JlMCIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxvYW5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiNDYxMWIwYWQtMjk5My00ZTYwLThjMGUtNjBlYjZhMjRiZDMzIiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiI0NjExYjBhZC0yOTkzLTRlNjAtOGMwZS02MGViNmEyNGJkMzMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRydXNlcjI2In0.tFN8dgcKSxqQKKtIk5ATtMeOfvPN-ARVjTYShvFRaRMHocixBy_FroW5Jbv0HHHjzbRVErrK5limjELt0aePWyRMdO6mCymByoHzDEWq1IHn0hB20uYwV0W4x9dBxZU0qOlBLp3Bh5DOAf0v0JgIEpN_wjeB7M1gPL-ZjSrBnWviV0brNwNzW3v0Lw7qGXUVfyoO6oaXRP-mS7gKMyddLonKHKs3ZWqhJLDRvbJIpXg3n8mwTcehdz8d9V4mF3Q-LHu1pgGnGHVx1brG08Ze1rY8NlTPkLyusPSyzWMNGJrfzxMgaRsyubMx7LjFsCAhVLtUCsUVu5j88oK3P3jncg"
         
         # Set the headers
         headers = {
@@ -54,9 +54,46 @@ def paymentCall():
         print(response.status_code)
 
 
-
-
-
+def searchCall():
+        # Read the protobuf file
+        with open("common.bin", "rb") as f:
+            protobuf_data = f.read()
+        
+        # Define the bearer token
+        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsWUVOWHhJRWpTTm9LUjF5bEdxNHpSQUl1a1IxcThMdGZYNnBlZXctRnUwIn0.eyJleHAiOjE2NzQwMzY0OTYsImlhdCI6MTY3NDAzNTc3NiwianRpIjoiMTFiYTcyZmUtZjBlNi00NDI2LWFhMTQtMDNlZWYxOTA0NGM0IiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODAuMTkwOjgwOTAvYXV0aC9yZWFsbXMvTE9BTklRX1dFQiIsInN1YiI6ImQwZTY0Yjc1LTgzZDktNDMyOS1hYzM0LTQyNDkyY2RlODM3ZiIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxPQU5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiMGJmOTQ3ODktMzNjOC00YWE5LWE2NTEtMzU3NmQ1M2EzMDk5IiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIwYmY5NDc4OS0zM2M4LTRhYTktYTY1MS0zNTc2ZDUzYTMwOTkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJ0cnVzZXIgMjYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0cnVzZXIyNiIsImdpdmVuX25hbWUiOiJ0cnVzZXIiLCJmYW1pbHlfbmFtZSI6IjI2In0.L4E-k2qlO1_SAYR_noHRnxDcDsSe_s08nbXAdr3O0dfCZHWxzu7ralWv5bPNsgtQGBLFMMKJtA9rI7NJhL5xTZi_SbqabxhlYSnUUV2srUhr_a-ytKDoWnyI8PcKx_5j4blk0qjdbGvyvTV1aKF3sQtJnI5QKZOQIoEImTysTgePXYQHhUrx-43kH5fWAZGtjduBTf5zt2hSfHXU6IJHjsAcm_8KvsNShRp9DmMST7E0w_vzTiyYKjA1TuTU-SzP4s6HmcoXFtr5pmo4mq0NUpvv8V8v6O1KiLbay6w8_umry9NW_jmu6lxlfp3K3vnyV3PPITfNatDgurBKoUQzOA"
+        # Set the headers
+        headers = {
+            'Content-Type': 'application/x-protobuf',
+            'Authorization': 'Bearer ' + bearer_token
+        }
+        
+        # Send the POST request
+        response = requests.post("http://blrcswliqdt0010:8081/search/query/tenantID/SME/searchborrower", data=protobuf_data, headers=headers)
+        # Print the response
+        print(response.status_code)
+       # Check if the request was successful
+        if response.status_code == 200:
+            # Get the content of the response
+            content = response.content
+        
+            # Save the content to a file
+            with open("response.bin", "wb") as file:
+                file.write(content)
+                print("response saved in response.bin")
+             # Send the POST request
+                 
+            with open("response.bin", "rb") as f:
+                protobuf_data = f.read()
+             
+                headers = {
+                    'Content-Type': 'application/x-protobuf'
+                    }
+                response_json = requests.post("http://blrcswliqdt0010:9091/dev/protobuf-utility/protobuftojson", data=protobuf_data, headers=headers)  
+                data_json = response_json.json()
+                print(json.dumps(data_json, indent=4))
+        else:
+            # Handle error
+            print("Request failed with status code:", response.status_code)
 
 
 
@@ -74,7 +111,7 @@ pairs = [
     ],
     [
         r"about",
-      [ paymentCall()  ] 
+      [ searchCall()  ] 
     ],
     [
         r"what is your name?",
