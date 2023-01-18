@@ -21,6 +21,7 @@ import os
 import json
 import random
 from playsound import playsound
+from tkinter import PhotoImage
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -60,7 +61,7 @@ def searchBorrowerCall():
             protobuf_data = f.read()
         
         # Define the bearer token
-        bearer_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsWUVOWHhJRWpTTm9LUjF5bEdxNHpSQUl1a1IxcThMdGZYNnBlZXctRnUwIn0.eyJleHAiOjE2NzQwNTEyMzMsImlhdCI6MTY3NDA0NzYzMywianRpIjoiYzA0OWRiYzQtZjE2NC00OTRmLWE2MjQtNjY5ODQ5MWQ3OTBkIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODAuMTkwOjgwOTAvYXV0aC9yZWFsbXMvTE9BTklRX1dFQiIsInN1YiI6ImQwZTY0Yjc1LTgzZDktNDMyOS1hYzM0LTQyNDkyY2RlODM3ZiIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxPQU5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiMDQwMjViZjUtOGUyZi00MDcxLWI4YWMtYWViZmNhOGU3ODJjIiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIwNDAyNWJmNS04ZTJmLTQwNzEtYjhhYy1hZWJmY2E4ZTc4MmMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJ0cnVzZXIgMjYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0cnVzZXIyNiIsImdpdmVuX25hbWUiOiJ0cnVzZXIiLCJmYW1pbHlfbmFtZSI6IjI2In0.K164__ntsKilFRH0CxaLqCfXjPPPZlN6z8HdF2I3MZWBnMnW9t1qmElKYItDFIio-bC7pn4UpWYg85g9IDAF-wRi6Y15edfn6Z2jBiBAYVFkwS0y4-_7NqskO_eyNhJq1jJFPOTJP0qy6I-oiy7aKs2N26sga18BtW9owHBM9x0_uaxXAGiUM0XephSWwU4mAZaYc2hjRsF4O8Q88aJoV89hegOdpot-efjIz5w1UNKNhE4EHozPxzjwRSd7ccrJ2lWNpv5tVgUh5g_DucXrY5PABY005VP8buHpCpABuRnk2U9VpEGhsb4CpYeK2X98SMY2IytBxdk9frrKmRQIxQ" 
+        bearer_token ="eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsWUVOWHhJRWpTTm9LUjF5bEdxNHpSQUl1a1IxcThMdGZYNnBlZXctRnUwIn0.eyJleHAiOjE2NzQwNjM0MjEsImlhdCI6MTY3NDA1OTgyMSwianRpIjoiNTU0ZGYxMzItOTAwMy00YWEyLThjZjAtZmRmMWM0MTNhM2UzIiwiaXNzIjoiaHR0cDovLzEwLjI0MC4xODAuMTkwOjgwOTAvYXV0aC9yZWFsbXMvTE9BTklRX1dFQiIsInN1YiI6ImQwZTY0Yjc1LTgzZDktNDMyOS1hYzM0LTQyNDkyY2RlODM3ZiIsInR5cCI6IkJlYXJlciIsImF6cCI6IkxPQU5JUV9XRUIiLCJzZXNzaW9uX3N0YXRlIjoiYTVjNDFlMzMtNGRmMy00ZmY3LTgxYzctMmQzOTU2YzI0ZmI5IiwiYWNyIjoiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJhNWM0MWUzMy00ZGYzLTRmZjctODFjNy0yZDM5NTZjMjRmYjkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJ0cnVzZXIgMjYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0cnVzZXIyNiIsImdpdmVuX25hbWUiOiJ0cnVzZXIiLCJmYW1pbHlfbmFtZSI6IjI2In0.RY5fepi0WXnADmduQmXVfpT8DnXBJI0Z3oU_lU3_WpcIB_WVi-xO-aa-FFoVFmC3mbVGVpFJPYQ0jBtmWFULZn5BKxayz-ndyvYDzhIq-Dpn1_lFjJREvLxk9DNNSoZ2iwUfSh2afysWjNFL9Sxh5LCdHYKSEBi8CIt8Wq4xfTARynZ8ApS0M7-zVvadbmAwyuMZeGXPyuzhDpr5gKYXEJ6Kud1kV0m1esJoACEvY9kPdnMMiQSHZrykCF9gn4yhCMq7p8Nhjm_G6GYc-2PRpJVEgUTpN_IBCTpQ-UYHfHe8QbZau850pieiDnhc55QpEdtOmy3JhZlf_l2YoXdQrA"
         # Set the headers
         headers = {
             'Content-Type': 'application/x-protobuf',
@@ -119,8 +120,8 @@ pairs = [
         ["Hello", "Hey there"]
     ],
     [
-        r"search Borrower",
-      [ searchBorrowerCall()] 
+        r"search",
+      [ "getting you search details"] 
     ],
     [
         r"what is your name?",
@@ -155,7 +156,7 @@ chatbot = Chat(pairs, reflections)
 root = tk.Tk()
 root.title("Chatbot-LoanIQ")
 pad=3
-root.geometry("600x480")
+root.geometry("1400x460")
 root.configure(background='white')
 
 global Canvas
@@ -188,10 +189,12 @@ user_input_frame.pack()
 user_input = tk.Entry(user_input_frame, width=500,font=("Roboto", 10))
 user_input.pack()
 
+gif = PhotoImage(file="voice_search.png")
+
 # Create a button to send the user input
 send_button = tk.Button(user_input_frame, text="Submit", command=lambda: send_message())
 send_button.pack()
-    
+   
 # Create a button to activate speech input
 listen_button = tk.Button(user_input_frame, text="Say Something", command=lambda: listen())
 listen_button.pack()
